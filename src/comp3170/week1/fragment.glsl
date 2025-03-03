@@ -8,7 +8,8 @@ layout(location = 0) out vec4 o_colour;	// output to colour buffer
 void main() {
 vec2 p = gl_FragCoord.xy / u_screenSize; // scale p into range (0,0) to (1,1)
 vec2 v = abs(p - vec2(0.5, 0.5)); 
-float d = v.x + v.y;  
+//float d = max(v.x, v.y); makes square
+float d = v.x + v.y;  //makes diamond
 
    if (d < 0.25) {
       o_colour = vec4(u_colour, 1);
